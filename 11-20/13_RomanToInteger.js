@@ -151,3 +151,33 @@ console.log(romanToInteger('MCMXCIV'));
 
 // Because only a constant number of single-value variables are used, the space complexity is O(1)O(1).
 
+
+
+// approach 3 
+// right to left 
+
+function romanToInt(str) {
+    // const dict = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000,IV:4,IX:9,XL:40,XC:90,CD:400,CM:900};
+    const dict = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+    result = 0;
+    for ( let i = str.length-1; i >= 0; i--) {
+        // 0 1 2 3 
+        // s[2] < s[3] => s[i] < s[i+1]
+        //  I V 
+        // starting from right most 
+        // 3 -> 2 -> 1 -> 0
+        if( dict[str[i]] < dict[str[i+1]]) {
+            result -= dict[str[i]];
+        } else {
+            result += dict[str[i]];
+        }
+    }
+    return result;
+}
+
+
+console.log(romanToInt('III'));
+console.log(romanToInt('IV'));
+console.log(romanToInt('IX'));
+console.log(romanToInt('LVIII'));
+console.log(romanToInt('MCMXCIV'));
