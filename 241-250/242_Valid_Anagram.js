@@ -50,3 +50,47 @@ function isAnagram(str1, str2) {
 }
 
 console.log(isAnagram('abc', 'bca'));
+
+
+
+// approach 2 
+// hash-map
+
+// Runtime: 88 ms, faster than 51.85% of JavaScript online submissions for Valid Anagram.
+// Memory Usage: 38.6 MB, less than 28.28% of JavaScript online submissions for Valid Anagram.
+
+// time complexity: O(n)
+// space complexity: O(1)
+
+function isAnagram(s, t) {
+    let dict = {};
+    for( let i = 0; i < s.length; i++) {
+        if( dict[s[i]] ) {
+            dict[s[i]]++;
+        } else {
+            dict[s[i]] = 1;
+        }
+    }
+    
+    for ( let j = 0; j < t.length; j++) {
+        if( dict[t[j]]) {
+            dict[t[j]]--;
+        } else {
+            dict[t[j]] = 1;
+        }
+    }
+
+    let sum = 0;
+    for( k in dict) {
+        sum += dict[k];
+        if( sum > 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isAnagram('abc', 'cba'));
+console.log(isAnagram('abc', 'cbax'));
+
+
