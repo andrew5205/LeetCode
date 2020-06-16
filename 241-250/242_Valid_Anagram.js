@@ -41,6 +41,10 @@ var isAnagram = function(s, t) {
 // space complexity: O(1)
 
 function isAnagram(str1, str2) {
+
+    // to make string always valid
+    // str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+
     const sortedStr1 = str1.split('').sort().join('');
     const sortedStr2 = str2.split('').sort().join('');
     if( sortedStr1 == sortedStr2) {
@@ -92,5 +96,4 @@ function isAnagram(s, t) {
 
 console.log(isAnagram('abc', 'cba'));
 console.log(isAnagram('abc', 'cbax'));
-
 
