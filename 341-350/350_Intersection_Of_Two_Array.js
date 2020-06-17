@@ -127,3 +127,11 @@ function intersect( arr1, arr2) {
 
 console.log(intersect([1,2,2,1],[2,2]));
 console.log(intersect([4,9,5],[9,4,9,8,4]));
+
+// elements in dict has value more the one 
+// iterate (j) only operate while needed 
+// example: [1,2,2,1],[2]
+// dict {1;2, 2:2}
+// for the second for loop
+// j only need to run one time 
+// no need to worry about the value greater then 0
