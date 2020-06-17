@@ -51,22 +51,79 @@
 
 // approach 1 - two pointer + splice 
 
-function intersect(arr1, arr2) {
-    let result = [];
-    for ( let i = 0; i < arr1.length; i++) {
-        for ( let j = 0; j < arr2.length; j++) {
-            if ( arr1[i] == arr2[j]) {
-                result.push(arr1[i]);
-                arr1.splice(i,1);
-                arr2.splice(j,1);
-                i--;
-                j--;
-            }
+// function intersect(arr1, arr2) {
+//     let result = [];
+//     for ( let i = 0; i < arr1.length; i++) {
+//         for ( let j = 0; j < arr2.length; j++) {
+//             if ( arr1[i] == arr2[j]) {
+//                 result.push(arr1[i]);
+//                 arr1.splice(i,1);
+//                 arr2.splice(j,1);
+//                 i--;
+//                 j--;
+//             }
+//         }
+//     }
+//     return result;
+// }
+
+
+// console.log(intersect([1,2,2,1],[2,2]));
+// console.log(intersect([4,9,5],[9,4,9,8,4]));
+
+// //////////////////////////////////////////////////////////////////
+
+
+// /**
+//  * @param {number[]} nums1
+//  * @param {number[]} nums2
+//  * @return {number[]}
+//  */
+// var intersect = function(nums1, nums2) {
+//     let dict = {};
+//     let output = [];
+//     for(let i = 0; i < nums1.length; i++) {
+//         if( dict[nums1[i]]) {
+//             dict[nums1[i]]++;
+//         } else {
+//             dict[nums1[i]] = 1;
+//         }
+//     }
+//     for(let j = 0; j < nums2.length; j++) {
+//         if( dict[nums2[j]] > 0) {
+//         output.push(nums2[j]);
+//         dict[nums2[j]]--;
+//         }
+//     }
+//     return output;
+// };
+
+
+// Runtime: 68 ms, faster than 56.89% of JavaScript online submissions for Intersection of Two Arrays II.
+// Memory Usage: 37.4 MB, less than 15.02% of JavaScript online submissions for Intersection of Two Arrays II.
+
+
+
+function intersect( arr1, arr2) {
+    let dict = {};
+    let output = [];
+    for(let i = 0; i < arr1.length; i++) {
+        if( dict[arr1[i]]) {
+            dict[arr1[i]]++;
+        } else {
+            dict[arr1[i]] = 1;
         }
     }
-    return result;
+    for(let j = 0; j < arr2.length; j++) {
+        // does not matter size of the array goes first 
+        // as long as all elements from shortest arry has in has map
+        if( dict[arr2[j]] > 0) {
+        output.push(arr2[j]);
+        dict[arr2[j]]--;
+        }
+    }
+    return output;
 }
-
 
 console.log(intersect([1,2,2,1],[2,2]));
 console.log(intersect([4,9,5],[9,4,9,8,4]));
