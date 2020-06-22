@@ -52,16 +52,17 @@ console.log(fib(4));
 console.log(fib(5));
 
 
-
+// Runtime: 96 ms, Runtime: 60 ms, faster than 69.73% of JavaScript online submissions for Fibonacci Number.
+// Memory Usage: 32.7 MB, less than 98.22% of JavaScript online submissions for Fibonacci Number..8 MB, less than 8.29% of JavaScript online submissions for Fibonacci Number.
 function fibArr(n) {
     let arr = [0,1];
     for( let i = 2; i <= n; i++) {
         arr.push(arr[i-1] + arr[i-2]);
     }
-    return arr.pop();
+    return arr[n];
+    // return arr.pop();
 }
 console.log(fibArr(3));
 console.log(fibArr(4));
 console.log(fibArr(5));
 console.log(fibArr(19));
-
