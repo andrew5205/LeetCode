@@ -35,12 +35,16 @@
 //     return fib(N-1) + fib(N-2);
 // };
 
+// [0,1,1,2,3,5,8,13,21,34,55,89, 144,233,377,610,987,1597,2584,4181]
+
+
+
 
 // Runtime: 96 ms, faster than 15.28% of JavaScript online submissions for Fibonacci Number.
 // Memory Usage: 34.8 MB, less than 8.29% of JavaScript online submissions for Fibonacci Number.
 
-// [0,1,1,2,3,5,8,13,21,34,55,89, 144,233,377,610,987,1597,2584,4181]
-
+// time complexity: O(2^n)
+// space complexity: O(n)
 function fib(n) {
     if( n < 2) {
         return n;
@@ -54,6 +58,9 @@ console.log(fib(5));
 
 // Runtime: 96 ms, Runtime: 60 ms, faster than 69.73% of JavaScript online submissions for Fibonacci Number.
 // Memory Usage: 32.7 MB, less than 98.22% of JavaScript online submissions for Fibonacci Number..8 MB, less than 8.29% of JavaScript online submissions for Fibonacci Number.
+
+// time complexity: O(n)
+// space complexity: O(n)
 function fibArr(n) {
     let arr = [0,1];
     for( let i = 2; i <= n; i++) {
