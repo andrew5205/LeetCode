@@ -52,6 +52,53 @@
     
     
     
+    
+    
+    // ******************************************************************************************** //
+    
+    
+    // /**
+    //  * @param {number[]} nums
+    //  * @param {number} target
+    //  * @return {number[]}
+    //  */
+    // var twoSum = function(nums, target) {
+    //     let cache = {};
+    //     for( let i = 0; i < nums.length; i++) {
+    //         if(cache[nums[i]] >= 0) {
+    //             return [cache[nums[i]], i];
+    //         }
+    //         cache[target - nums[i]] = i;
+    //     }
+    // };
+    
+    // Runtime: 60 ms, faster than 84.32% of JavaScript online submissions for Two Sum.
+    // Memory Usage: 34.7 MB, less than 71.26% of JavaScript online submissions for Two Sum.
+    
+    
+    
+    // the key : val ==> diff needed : index
+    function twoSumObj(nums, target) {
+        let cache = {};
+        for( let i = 0; i < nums.length; i++) {
+            if(cache[nums[i]] >= 0) {       // cache[nums[i] != null]
+                return [cache[nums[i]], i];
+            }
+            cache[target - nums[i]] = i;
+        }
+    }
+    
+    console.log(twoSumObj([2, 7, 11, 15], 9));       
+    // console.log(twoSumObj([1,2,3,4,5,6], 8));       // [ 5, 4]
+    
+    
+    // reason why can not do line #84 if(cache[nums[i]]) {} instead of (cache[nums[i]] >= 0)
+    // from nums array, element is number 
+    // while update to cache, it pass in as string 
+    // so it gives nudefined 
+    
+    
+    
     // ******************************************************************************************** //
     // AD
     // hash set
@@ -71,5 +118,3 @@
     
     
     console.log(hasPairWithSum2([1,2,3,4,5,6], 8));
-    
-    
