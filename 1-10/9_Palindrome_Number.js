@@ -58,3 +58,37 @@ function isPalindrome(x) {
 console.log(isPalindrome(23));
 console.log(isPalindrome(-23));
 console.log(isPalindrome(323));
+
+
+
+
+// ********  without converting to string  ************************************************************ //
+// use %
+
+// /**
+//  * @param {number} x
+//  * @return {boolean}
+//  */
+// var isPalindrome = function(x) {
+//     let temp = x;
+//     let rev = 0;
+//     while ( temp > 0 ) {
+//         rev = rev * 10 + temp % 10;
+//         temp = Math.floor(temp / 10);
+//     }
+//     return rev === x;
+// };
+
+// Runtime: 180 ms, faster than 93.78% of JavaScript online submissions for Palindrome Number.
+// Memory Usage: 45.4 MB, less than 76.27% of JavaScript online submissions for Palindrome Number.
+
+
+function isPalindromeM(x) {
+    let temp = x;
+    let rev = 0;
+    while ( temp > 0 ) {
+        rev = rev * 10 + temp % 10;
+        temp = Math.floor(temp / 10);
+    }
+    return rev === x;
+}
