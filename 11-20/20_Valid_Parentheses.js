@@ -82,3 +82,96 @@ console.log(isValid("()"));
 console.log(isValid("()[]{}"));
 console.log(isValid("(}"));
 console.log(isValid("{[]}"));
+
+
+
+
+
+
+
+
+
+
+
+console.log("**************************************************")
+// /**
+//  * @param {string} s
+//  * @return {boolean}
+//  */
+
+// var hashMap = {
+//     "(": ")",
+//     "[": "]",
+//     "{": "}",
+// };
+// var isValid = function(s) {
+//     var stack = [];
+
+//     for ( let i = 0; i < s.length; i++) {
+//         if( hashMap[s[i]] ) {
+//             stack.push(hashMap[s[i]]);
+//         } else if( s[i] != stack.pop()) {
+//             return false;
+//         }
+//     }
+//     return stack.length == 0;
+// };
+
+// Runtime: 84 ms, faster than 18.62% of JavaScript online submissions for Valid Parentheses.
+// Memory Usage: 34 MB, less than 55.28% of JavaScript online submissions for Valid Parentheses.
+
+
+var hashMap = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+}
+
+function isValid(str) {
+    var stack = [];
+
+    for ( let i = 0; i < str.length; i++) {
+        if( hashMap[str[i]] ) {
+            stack.push(hashMap[str[i]]);
+        } else if( str[i] != stack.pop()) {
+            return false;
+        }
+    }
+    return stack.length == 0;
+}
+console.log(isValid("()"));
+console.log(isValid("()[]{}"));
+console.log(isValid("(}"));
+console.log(isValid("{[]}"));
+
+
+
+
+
+
+// ***************************************************************************** //
+console.log('approach 3');
+
+
+var isValid = function(s) {   
+    const stack = [];
+    
+    for (let i = 0 ; i < s.length ; i++) {
+        let c = s.charAt(i);
+        switch(c) {
+            case '(': stack.push(')');
+                break;
+            case '[': stack.push(']');
+                break;
+            case '{': stack.push('}');
+                break;
+            default:
+                if (c !== stack.pop()) {
+                    return false;
+                }
+        }
+    }
+    
+    return stack.length === 0;
+};
+
