@@ -69,3 +69,49 @@ console.log(longestCommonPrefix(["flower","flow","flight"]));
 // for ( k in object )
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 // ****************************************************************************************************************** //
+
+
+
+// /**
+//  * @param {string[]} strs
+//  * @return {string}
+//  */
+// var longestCommonPrefix = function(strs) {
+//     if ( !strs.length ) {
+//         return '';
+//     }
+
+//     let result = '';
+//     for ( let i = 0; i < strs[0].length; i++) {
+//         for( let j = 1; j < strs.length; j++) {
+//             if (strs[0][i] != strs[j][i]) {
+//                 return result;
+//             }
+//         }
+//         result += strs[0][i];
+//     }
+//     return result;
+// };
+
+
+// Runtime: 68 ms, faster than 62.36% of JavaScript online submissions for Longest Common Prefix.
+// Memory Usage: 37.5 MB, less than 14.47% of JavaScript online submissions for Longest Common Prefix.
+
+
+function longestCommonPrefix2(strs) {
+    if ( !strs.length ) {
+        return '';
+    }
+
+    let result = '';
+    for ( let i = 0; i < strs[0].length; i++) {
+        for( let j = 1; j < strs.length; j++) {
+            if (strs[0][i] != strs[j][i]) {
+                return result;
+            }
+        }
+        result += strs[0][i];
+    }
+    return result;
+}
+console.log(longestCommonPrefix2(["flower","flow","flight"]));
