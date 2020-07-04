@@ -87,3 +87,31 @@ console.log(isPowerOfThree2(27));
 console.log(isPowerOfThree2(0));
 console.log(isPowerOfThree2(9));
 console.log(isPowerOfThree2(45));
+
+
+
+
+// /**
+//  * @param {number} n
+//  * @return {boolean}
+//  */
+// var isPowerOfThree = function(n) {
+//     return n.toString(3).split('').reduce((acc, curr) => parseInt(acc) + parseInt(curr), 0) == 1;
+// };
+
+
+// Runtime: 380 ms, faster than 6.92% of JavaScript online submissions for Power of Three.
+// Memory Usage: 45.6 MB, less than 99.58% of JavaScript online submissions for Power of Three.
+
+
+// without loop or recursion 
+function isPowerOfThreeToString(n) {
+    return n.toString(3).split('').reduce((acc, curr) => parseInt(acc) + parseInt(curr), 0) == 1;
+}
+
+console.log(isPowerOfThreeToString(27));
+
+// n.toString(3) makes the number into a string with base of 3, 
+// split the string into Array, and use reduce() to sum up the number 
+// if the sum is equal to 1, n is power of 3 
+// 1, 10, 100, 10000, 1000000
